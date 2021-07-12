@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class ViewData extends StatelessWidget {
-  static final String id = "data";
+  static final String id = "viewdata";
   @override
   Widget build(BuildContext context) {
     return Scaffold(

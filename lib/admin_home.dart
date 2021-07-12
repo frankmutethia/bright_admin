@@ -17,8 +17,14 @@ class AdminHome extends StatelessWidget {
       {IconData icon, String count, String name, BuildContext context}) {
     return InkWell(
         onTap: () {
-          Navigator.pushNamed(context, ViewData.id);
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ViewData()),
+          );
         },
+        //  Navigator.pushNamed(context, ViewData.id);
+        // Navigator.pushNamed(context, ViewData.id);
+        // },
         child: StreamBuilder(
             stream: Firestore.instance.collection('users').snapshots(),
             builder: (context, snapshot) {
@@ -127,8 +133,14 @@ class AdminHome extends StatelessWidget {
       {IconData icon, int co, String name, BuildContext context}) {
     return InkWell(
         onTap: () {
-          Navigator.pushReplacementNamed(context, Bookings.id);
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Bookings()),
+          );
         },
+        // onTap: () {
+        //   Navigator.pushReplacementNamed(context, Bookings.id);
+        // },
         child: StreamBuilder(
             stream: Firestore.instance.collection('bookingpackage').snapshots(),
             builder: (context, snapshot) {
