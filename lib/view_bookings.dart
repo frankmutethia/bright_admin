@@ -1,4 +1,5 @@
 // import 'package:msafiri_admin/display.dart';
+import 'package:brightcare_admin/sheet_files.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -19,10 +20,26 @@ class _BookingsState extends State<Bookings> {
             fontSize: 18.0,
           ),
         ),
-        leading: Icon(
-          Icons.arrow_back,
-          size: 26.0,
-        ),
+        elevation: 0.0,
+        centerTitle: false,
+        actions: [
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SheetFiles()),
+              );
+            },
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              child: Icon(Icons.file_copy_sharp),
+            ),
+          ),
+        ],
+        // leading: Icon(
+        //   Icons.arrow_back,
+        //   size: 26.0,
+        // ),
       ),
       body: StreamBuilder<QuerySnapshot>(
         stream: Firestore.instance.collection("bookings").snapshots(),

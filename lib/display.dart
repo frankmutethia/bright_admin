@@ -32,14 +32,15 @@ class ViewData extends StatelessWidget {
     return snapshot.data.documents
         .map((doc) => ListTile(
               title: Text(
-                doc["name"],
+                doc["userName"],
                 style: TextStyle(fontSize: 17.0),
               ),
               subtitle: Text(
-                doc["email"],
+                doc["userEmail"],
                 style: TextStyle(fontSize: 17.0),
               ),
             ))
         .toList();
   }
 }
+// title: Text(widget.title),

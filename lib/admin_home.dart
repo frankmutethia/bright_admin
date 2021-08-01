@@ -13,74 +13,80 @@ import 'package:flutter/material.dart';
 class AdminHome extends StatelessWidget {
   static final String id = "admin";
 
-  Widget _buildSingleContainer(
-      {IconData icon, String count, String name, BuildContext context}) {
-    return InkWell(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => ViewData()),
-          );
-        },
-        //  Navigator.pushNamed(context, ViewData.id);
-        // Navigator.pushNamed(context, ViewData.id);
-        // },
-        child: StreamBuilder(
-            stream: Firestore.instance.collection('users').snapshots(),
-            builder: (context, snapshot) {
-              List<DocumentSnapshot> count = snapshot.data.documents;
-              var countlength = count.length;
-              print(countlength);
-              return Card(
-                color: Colors.blueAccent,
-                child: Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Center(
-                            child: Icon(
-                              icon,
-                              size: 40.0,
-                              color: Colors.white,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 10.0,
-                          ),
-                        ],
-                      ),
-                      Text(
-                        name,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 22.0,
-                        ),
-                      ),
-                      Text(
-                        '$countlength',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 50.0,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              );
-            }));
-  }
+  // Widget _buildSingleContainer(
+  //     {IconData icon, String count, String name, BuildContext context}) {
+  //   return InkWell(
+  //       onTap: () {
+  //         Navigator.push(
+  //           context,
+  //           MaterialPageRoute(builder: (context) => ViewData()),
+  //         );
+  //       },
+  //       //  Navigator.pushNamed(context, ViewData.id);
+  //       // Navigator.pushNamed(context, ViewData.id);
+  //       // },
+  //       child: StreamBuilder(
+  //           stream: Firestore.instance.collection('users').snapshots(),
+  //           builder: (context, snapshot) {
+  //             List<DocumentSnapshot> count = snapshot.data.documents;
+  //             var countlength = count.length;
+  //             print(countlength);
+  //             return Card(
+  //               color: Colors.blueAccent,
+  //               child: Container(
+  //                 child: Column(
+  //                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  //                   children: [
+  //                     Row(
+  //                       mainAxisAlignment: MainAxisAlignment.center,
+  //                       children: [
+  //                         Center(
+  //                           child: Icon(
+  //                             icon,
+  //                             size: 40.0,
+  //                             color: Colors.white,
+  //                           ),
+  //                         ),
+  //                         SizedBox(
+  //                           width: 10.0,
+  //                         ),
+  //                       ],
+  //                     ),
+  //                     Text(
+  //                       name,
+  //                       style: TextStyle(
+  //                         color: Colors.white,
+  //                         fontWeight: FontWeight.bold,
+  //                         fontSize: 22.0,
+  //                       ),
+  //                     ),
+  //                     Text(
+  //                       '$countlength',
+  //                       style: TextStyle(
+  //                         color: Colors.white,
+  //                         fontWeight: FontWeight.bold,
+  //                         fontSize: 50.0,
+  //                       ),
+  //                     )
+  //                   ],
+  //                 ),
+  //               ),
+  //             );
+  //           }));
+  // }
 
   Widget _buildCard2(
       {IconData icon, int count, String name, BuildContext context}) {
     return InkWell(
         onTap: () {
-          Navigator.pushNamed(context, AddPackage.id);
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => AddPackage()),
+          );
         },
+        // onTap: () {
+        //   Navigator.pushNamed(context, AddPackage.id);
+        // },
         child: StreamBuilder(
             stream: Firestore.instance.collection('packages').snapshots(),
             builder: (context, snapshot) {
@@ -338,12 +344,12 @@ class AdminHome extends StatelessWidget {
                     crossAxisSpacing: 5.0,
                     crossAxisCount: 2,
                     children: [
-                      _buildSingleContainer(
-                        context: context,
-                        count: "",
-                        icon: Icons.person,
-                        name: "Users",
-                      ),
+                      // _buildSingleContainer(
+                      //   context: context,
+                      //   count: "",
+                      //   icon: Icons.person,
+                      //   name: "Users",
+                      // ),
                       _buildCard2(
                         context: context,
                         count: 1,
