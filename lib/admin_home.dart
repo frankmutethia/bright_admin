@@ -5,6 +5,7 @@ import 'package:brightcare_admin/add.dart';
 import 'package:brightcare_admin/appointments_screen.dart';
 import 'package:brightcare_admin/display.dart';
 import 'package:brightcare_admin/login_screen.dart';
+import 'package:brightcare_admin/sheet_files.dart';
 import 'package:brightcare_admin/view_bookings.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -13,15 +14,75 @@ import 'package:flutter/material.dart';
 class AdminHome extends StatelessWidget {
   static final String id = "admin";
 
+  Widget _buildCard(
+      {IconData icon, int count, String name, BuildContext context}) {
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => SheetFiles()),
+        );
+      },
+      // onTap: () {
+      //   Navigator.pushNamed(context, AppointmentsScreen.id);
+      // },
+      child: Card(
+        color: Colors.blue,
+        child: Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    icon,
+                    size: 30.0,
+                    color: Colors.white,
+                  ),
+                  SizedBox(
+                    width: 10.0,
+                  ),
+                ],
+              ),
+              Text(
+                name,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 22.0,
+                ),
+              ),
+              Text(
+                count.toString(),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 50.0,
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   // Widget _buildSingleContainer(
   //     {IconData icon, String count, String name, BuildContext context}) {
   //   return InkWell(
-  //       onTap: () {
-  //         Navigator.push(
-  //           context,
-  //           MaterialPageRoute(builder: (context) => ViewData()),
-  //         );
-  //       },
+  //      onTap: () {
+  //             Navigator.push(
+  //               context,
+  //               MaterialPageRoute(builder: (context) => SheetFiles()),
+  //             );
+  //           },
+  //       // onTap: () {
+  //       //   Navigator.push(
+  //       //     context,
+  //       //     MaterialPageRoute(builder: (context) => ViewData()),
+  //       //   );
+  //       // },
   //       //  Navigator.pushNamed(context, ViewData.id);
   //       // Navigator.pushNamed(context, ViewData.id);
   //       // },
@@ -154,7 +215,7 @@ class AdminHome extends StatelessWidget {
               var cou = co.length;
               print(cou);
               return Card(
-                color: Colors.orangeAccent,
+                color: Colors.purple,
                 child: Container(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -250,7 +311,7 @@ class AdminHome extends StatelessWidget {
         Navigator.pushNamed(context, AppointmentsScreen.id);
       },
       child: Card(
-        color: Colors.greenAccent,
+        color: Colors.red,
         child: Container(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -344,12 +405,12 @@ class AdminHome extends StatelessWidget {
                     crossAxisSpacing: 5.0,
                     crossAxisCount: 2,
                     children: [
-                      // _buildSingleContainer(
-                      //   context: context,
-                      //   count: "",
-                      //   icon: Icons.person,
-                      //   name: "Users",
-                      // ),
+                      _buildCard(
+                        context: context,
+                        count: 1,
+                        icon: Icons.person,
+                        name: "Patient Records",
+                      ),
                       _buildCard2(
                         context: context,
                         count: 1,

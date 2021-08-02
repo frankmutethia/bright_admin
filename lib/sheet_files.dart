@@ -54,27 +54,27 @@ class _SheetFilesState extends State<SheetFiles> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Doc to Google Sheets",
+          "Patient Records",
           style: TextStyle(
             fontSize: 18.0,
           ),
         ),
         elevation: 0.0,
         centerTitle: false,
-        actions: [
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Bookings()),
-              );
-            },
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Icon(Icons.arrow_back_sharp),
-            ),
-          ),
-        ],
+        // actions: [
+        //   GestureDetector(
+        //     onTap: () {
+        //       Navigator.push(
+        //         context,
+        //         MaterialPageRoute(builder: (context) => Bookings()),
+        //       );
+        //     },
+        //     child: Container(
+        //       padding: EdgeInsets.symmetric(horizontal: 16),
+        //       child: Icon(Icons.arrow_back_sharp),
+        //     ),
+        //   ),
+        // ],
         // leading: Icon(
         //   Icons.arrow_back,
         //   size: 26.0,
